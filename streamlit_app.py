@@ -22,7 +22,7 @@ streamlit.dataframe(fruits_to_show)
 
 streamlit.header("Fruitivice fruit advice")
 
-fruit_choise=streamlit.text('What fruit you wand to chose?','Kiwi')
+fruit_choise=streamlit.text_input('What fruit you wand to chose?','Kiwi')
 streamlit.write('The user entered',fruit_choise)
 
 fruityvice_response=requests.get("https://fruityvice.com/api/fruit/" + fruit_choise)
