@@ -44,8 +44,9 @@ def get_fruit_list():
   with my_cnx.cursor() as my_cur:
     my_cur.execute("SELECT * from FRUIT_LOAD_LIST")
     return my_cur.fetchall()
+  
 streamlit.header("FRUIT_LOAD_LIST")
-streamlit.dataframe(my_data_rows)
+streamlit.dataframe(get_fruit_list())
 
 add_fruit=streamlit.text_input('What fruit you want to add?','Jackfruit')
 streamlit.write('The user entered',add_fruit)
