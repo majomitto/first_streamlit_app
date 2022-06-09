@@ -54,17 +54,17 @@ def insert_row_snowflake(new_fruit):
   with my_cnx.cursor() as my_cur:
       my_cur.execute("insert into fruit_load_list values ('" + new_fruit + "')")
       return "Thanks for adding " + new_fruit
-def delete_row_snowflake(new_fruit):
-  with my_cnx.cursor() as my_cur:
-      my_cur.execute("delete from fruit_load_list where fruit_name = ('" + new_fruit + "')")
-      return "Thanks for delete " + new_fruit
+#def delete_row_snowflake(new_fruit):
+#  with my_cnx.cursor() as my_cur:
+#      my_cur.execute("delete from fruit_load_list where fruit_name = ('" + new_fruit + "')")
+#      return "Thanks for delete " + new_fruit
     
 add_my_fruit=streamlit.text_input('What fruit you want to add/delete?')
 if streamlit.button("Add fruit to the list"):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   back_from_function = insert_row_snowflake (add_my_fruit)
   streamlit.text(back_from_function)
-if streamlit.button("Delete fruit from the list"):
-  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-  back_from_function = delete_row_snowflake (delete_my_fruit)
-  streamlit.text(back_from_function)
+#if streamlit.button("Delete fruit from the list"):
+#  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+#  back_from_function = delete_row_snowflake (delete_my_fruit)
+#  streamlit.text(back_from_function)
